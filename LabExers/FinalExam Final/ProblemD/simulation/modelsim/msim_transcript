@@ -1,0 +1,89 @@
+# Reading pref.tcl
+# do ProblemD_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 2020.1 Lib Mapping Utility 2020.02 Feb 28 2020
+# vmap work rtl_work 
+# Copying C:/intelFPGA_lite/20.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -vlog01compat -work work +incdir+C:/Users/Chrys\ Sean\ Sevilla/Desktop/School\ Stuff/CPE3101L_Sevilla/LabExers/FinalExam\ Final/ProblemD {C:/Users/Chrys Sean Sevilla/Desktop/School Stuff/CPE3101L_Sevilla/LabExers/FinalExam Final/ProblemD/ProblemD.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 23:27:46 on Dec 17,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Chrys Sean Sevilla/Desktop/School Stuff/CPE3101L_Sevilla/LabExers/FinalExam Final/ProblemD" C:/Users/Chrys Sean Sevilla/Desktop/School Stuff/CPE3101L_Sevilla/LabExers/FinalExam Final/ProblemD/ProblemD.v 
+# -- Compiling module ProblemD
+# 
+# Top level modules:
+# 	ProblemD
+# End time: 23:27:46 on Dec 17,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vlog -vlog01compat -work work +incdir+C:/Users/Chrys\ Sean\ Sevilla/Desktop/School\ Stuff/CPE3101L_Sevilla/LabExers/FinalExam\ Final/ProblemD {C:/Users/Chrys Sean Sevilla/Desktop/School Stuff/CPE3101L_Sevilla/LabExers/FinalExam Final/ProblemD/tb_ProblemD.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 23:27:46 on Dec 17,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Chrys Sean Sevilla/Desktop/School Stuff/CPE3101L_Sevilla/LabExers/FinalExam Final/ProblemD" C:/Users/Chrys Sean Sevilla/Desktop/School Stuff/CPE3101L_Sevilla/LabExers/FinalExam Final/ProblemD/tb_ProblemD.v 
+# -- Compiling module tb_ProblemD
+# 
+# Top level modules:
+# 	tb_ProblemD
+# End time: 23:27:46 on Dec 17,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L fiftyfivenm_ver -L rtl_work -L work -voptargs="+acc"  tb_ProblemD
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L fiftyfivenm_ver -L rtl_work -L work -voptargs=""+acc"" tb_ProblemD 
+# Start time: 23:27:47 on Dec 17,2025
+# Loading work.tb_ProblemD
+# Loading work.ProblemD
+# 
+# add wave *
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# run -all
+# Time=0 | Reset=1 A=11 | Z= 0 (binary 0000)
+# --- Simulation Start ---
+# [Time 20000] Testing Even Sequence (A=00)
+# Time=20000 | Reset=0 A=00 | Z= 0 (binary 0000)
+# Time=25000 | Reset=0 A=00 | Z= 2 (binary 0010)
+# Time=35000 | Reset=0 A=00 | Z= 4 (binary 0100)
+# Time=45000 | Reset=0 A=00 | Z= 6 (binary 0110)
+# Time=55000 | Reset=0 A=00 | Z= 8 (binary 1000)
+# Time=65000 | Reset=0 A=00 | Z=10 (binary 1010)
+# Time=75000 | Reset=0 A=00 | Z=12 (binary 1100)
+# Time=85000 | Reset=0 A=00 | Z=14 (binary 1110)
+# Time=95000 | Reset=0 A=00 | Z= 0 (binary 0000)
+# [Time 100000] Testing Hold (A=11) - Current Z:  0
+# Time=100000 | Reset=0 A=11 | Z= 0 (binary 0000)
+# [Time 130000] Testing Load 15 (A=10)
+# Time=130000 | Reset=0 A=10 | Z= 0 (binary 0000)
+# Time=135000 | Reset=0 A=10 | Z=15 (binary 1111)
+# [Time 140000] Testing Odd Sequence (A=01) from 15
+# Time=140000 | Reset=0 A=01 | Z=15 (binary 1111)
+# Time=145000 | Reset=0 A=01 | Z= 1 (binary 0001)
+# Time=155000 | Reset=0 A=01 | Z= 3 (binary 0011)
+# Time=165000 | Reset=0 A=01 | Z= 5 (binary 0101)
+# Time=175000 | Reset=0 A=01 | Z= 7 (binary 0111)
+# Time=185000 | Reset=0 A=01 | Z= 9 (binary 1001)
+# Time=195000 | Reset=0 A=01 | Z=11 (binary 1011)
+# Time=205000 | Reset=0 A=01 | Z=13 (binary 1101)
+# Time=215000 | Reset=0 A=01 | Z=15 (binary 1111)
+# [Time 220000] Testing Switch: Odd Z to Even Mode (A=00)
+# Time=220000 | Reset=0 A=00 | Z=15 (binary 1111)
+# Time=225000 | Reset=0 A=00 | Z= 0 (binary 0000)
+# Time=235000 | Reset=0 A=00 | Z= 2 (binary 0010)
+# [Time 240000] Testing Switch: Even Z to Odd Mode (A=01)
+# Time=240000 | Reset=0 A=01 | Z= 2 (binary 0010)
+# Time=245000 | Reset=0 A=01 | Z= 1 (binary 0001)
+# Time=255000 | Reset=0 A=01 | Z= 3 (binary 0011)
+# [Time 260000] Testing Async Reset
+# Time=263000 | Reset=1 A=01 | Z= 0 (binary 0000)
+# --- Simulation End ---
+# ** Note: $stop    : C:/Users/Chrys Sean Sevilla/Desktop/School Stuff/CPE3101L_Sevilla/LabExers/FinalExam Final/ProblemD/tb_ProblemD.v(102)
+#    Time: 273 ns  Iteration: 0  Instance: /tb_ProblemD
+# Break in Module tb_ProblemD at C:/Users/Chrys Sean Sevilla/Desktop/School Stuff/CPE3101L_Sevilla/LabExers/FinalExam Final/ProblemD/tb_ProblemD.v line 102
+# End time: 23:28:35 on Dec 17,2025, Elapsed time: 0:00:48
+# Errors: 0, Warnings: 0

@@ -1,0 +1,23 @@
+|ProblemD
+clk => Z[0]~reg0.CLK
+clk => Z[1]~reg0.CLK
+clk => Z[2]~reg0.CLK
+clk => Z[3]~reg0.CLK
+reset => Z[0]~reg0.ACLR
+reset => Z[1]~reg0.ACLR
+reset => Z[2]~reg0.ACLR
+reset => Z[3]~reg0.ACLR
+A[0] => Mux0.IN4
+A[0] => Mux1.IN4
+A[0] => Mux2.IN4
+A[0] => Mux3.IN4
+A[1] => Mux0.IN3
+A[1] => Mux1.IN3
+A[1] => Mux2.IN3
+A[1] => Mux3.IN3
+Z[0] <= Z[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Z[1] <= Z[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Z[2] <= Z[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Z[3] <= Z[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+

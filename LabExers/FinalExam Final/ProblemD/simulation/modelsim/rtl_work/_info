@@ -1,0 +1,61 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/Chrys Sean Sevilla/Desktop/School Stuff/CPE3101L_Sevilla/LabExers/FinalExam Final/ProblemD/simulation/modelsim
+vProblemD
+Z1 !s110 1765985266
+!i10b 1
+!s100 aW<eO8Jzb?CHUelhWCDKe2
+Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
+IE@P9YP0bMSB4C<hdO1YTn3
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1765529395
+8C:/Users/Chrys Sean Sevilla/Desktop/School Stuff/CPE3101L_Sevilla/LabExers/FinalExam Final/ProblemD/ProblemD.v
+FC:/Users/Chrys Sean Sevilla/Desktop/School Stuff/CPE3101L_Sevilla/LabExers/FinalExam Final/ProblemD/ProblemD.v
+!i122 0
+L0 2 38
+Z4 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z5 !s108 1765985266.000000
+!s107 C:/Users/Chrys Sean Sevilla/Desktop/School Stuff/CPE3101L_Sevilla/LabExers/FinalExam Final/ProblemD/ProblemD.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Chrys Sean Sevilla/Desktop/School Stuff/CPE3101L_Sevilla/LabExers/FinalExam Final/ProblemD|C:/Users/Chrys Sean Sevilla/Desktop/School Stuff/CPE3101L_Sevilla/LabExers/FinalExam Final/ProblemD/ProblemD.v|
+!i113 1
+Z6 o-vlog01compat -work work
+Z7 !s92 -vlog01compat -work work {+incdir+C:/Users/Chrys Sean Sevilla/Desktop/School Stuff/CPE3101L_Sevilla/LabExers/FinalExam Final/ProblemD}
+Z8 tCvgOpt 0
+n@problem@d
+vtb_ProblemD
+R1
+!i10b 1
+!s100 7>ZKhX?JnO[EDEg0R9hjR1
+R2
+IYghmV0b6RSY6bH8KZLb4m0
+R3
+R0
+w1765984971
+8C:/Users/Chrys Sean Sevilla/Desktop/School Stuff/CPE3101L_Sevilla/LabExers/FinalExam Final/ProblemD/tb_ProblemD.v
+FC:/Users/Chrys Sean Sevilla/Desktop/School Stuff/CPE3101L_Sevilla/LabExers/FinalExam Final/ProblemD/tb_ProblemD.v
+!i122 1
+L0 3 109
+R4
+r1
+!s85 0
+31
+R5
+!s107 C:/Users/Chrys Sean Sevilla/Desktop/School Stuff/CPE3101L_Sevilla/LabExers/FinalExam Final/ProblemD/tb_ProblemD.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Chrys Sean Sevilla/Desktop/School Stuff/CPE3101L_Sevilla/LabExers/FinalExam Final/ProblemD|C:/Users/Chrys Sean Sevilla/Desktop/School Stuff/CPE3101L_Sevilla/LabExers/FinalExam Final/ProblemD/tb_ProblemD.v|
+!i113 1
+R6
+R7
+R8
+ntb_@problem@d
