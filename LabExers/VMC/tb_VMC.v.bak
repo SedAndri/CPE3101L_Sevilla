@@ -1,0 +1,55 @@
+
+`timescale 1ns/1ps
+module tb_vmc;
+    reg CLOCK=0, nRESET=0, START=0, OK=0, CANCEL=0, SELECT=0;
+    // For Option A:
+    reg COIN1=0, COIN5=0, COIN10=0;
+    // For Option B:
+    // reg [1:0] COIN = 2'b00;
+
+    wire [2:0] ITEM;
+    wire DISPENSE, C1, C5, C10;
+
+    // Instantiate Option A module
+    vmc_coins_separate dut(
+        .CLOCK(CLOCK), .nRESET(nRESET), .START(START), .OK(OK), .CANCEL(CANCEL), .SELECT(SELECT),
+        .COIN1(COIN1), .COIN5(COIN5), .COIN10(COIN10),
+        .ITEM(ITEM), .DISPENSE(DISPENSE), .C1(C1), .C5(C5), .C10(C10)
+    );
+
+    // 20 ns clock; DUT triggers on negative edges
+    always #10 CLOCK = ~CLOCK;
+
+    task pulse(input reg signal_ref); begin
+        signal_ref = 1; #25; signal_ref = 0; // > one full clock so negedge sees it
+    end endtask
+
+    initial begin
+        // Reset
+        #5 nRESET = 0; #30 nRESET = 1;
+
+        // Test 1: Item0 (₱3), exact pay
+        pulse(START);          // enter selecting (ITEM=001)
+        pulse(OK);             // lock selection → PAYING
+        pulse(COIN1); pulse(COIN1); pulse(COIN1); // paid=3
+        pulse(OK);             // DISPENSE, no change
+        #100;
+
+        // Test 2: Item1 (₱5), overpay
+        pulse(START); pulse(SELECT); // ITEM=010
+        pulse(OK);
+        pulse(COIN10);               // paid=10
+        pulse(OK);                   // DISPENSE, then change: C5 once
+        #200;
+
+        // Test 3: Item2 (₱12), partial pay then CANCEL (async)
+        pulse(START); pulse(SELECT); pulse(SELECT); // ITEM=100
+        pulse(OK);
+        pulse(COIN10); pulse(COIN1);               // paid=11
+        #5 CANCEL = 1; #15 CANCEL = 0;             // async refund: C10 then C1
+        #300;
+
+        $finish;
+    end
+endmodule
+``

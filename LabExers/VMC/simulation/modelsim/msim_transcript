@@ -1,0 +1,71 @@
+# Reading pref.tcl
+# do VMC_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 2020.1 Lib Mapping Utility 2020.02 Feb 28 2020
+# vmap work rtl_work 
+# Copying C:/intelFPGA_lite/20.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -vlog01compat -work work +incdir+C:/Users/Chrys\ Sean\ Sevilla/Desktop/School\ Stuff/CPE3101L_Sevilla/LabExers/VMC {C:/Users/Chrys Sean Sevilla/Desktop/School Stuff/CPE3101L_Sevilla/LabExers/VMC/VMC.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 20:50:12 on Dec 17,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Chrys Sean Sevilla/Desktop/School Stuff/CPE3101L_Sevilla/LabExers/VMC" C:/Users/Chrys Sean Sevilla/Desktop/School Stuff/CPE3101L_Sevilla/LabExers/VMC/VMC.v 
+# -- Compiling module VMC
+# 
+# Top level modules:
+# 	VMC
+# End time: 20:50:12 on Dec 17,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vlog -vlog01compat -work work +incdir+C:/Users/Chrys\ Sean\ Sevilla/Desktop/School\ Stuff/CPE3101L_Sevilla/LabExers/VMC {C:/Users/Chrys Sean Sevilla/Desktop/School Stuff/CPE3101L_Sevilla/LabExers/VMC/tb_VMC.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 20:50:12 on Dec 17,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Chrys Sean Sevilla/Desktop/School Stuff/CPE3101L_Sevilla/LabExers/VMC" C:/Users/Chrys Sean Sevilla/Desktop/School Stuff/CPE3101L_Sevilla/LabExers/VMC/tb_VMC.v 
+# -- Compiling module tb_VMC
+# 
+# Top level modules:
+# 	tb_VMC
+# End time: 20:50:12 on Dec 17,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L fiftyfivenm_ver -L rtl_work -L work -voptargs="+acc"  tb_VMC
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L fiftyfivenm_ver -L rtl_work -L work -voptargs=""+acc"" tb_VMC 
+# Start time: 20:50:13 on Dec 17,2025
+# Loading work.tb_VMC
+# Loading work.VMC
+# 
+# add wave *
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# run -all
+# --- Resetting ---
+# Time:                    0 | ITEM: 000 | DISP: 0 | Change: 1:0 5:0 10:0
+# --- Test 1: Item 1 (Price 3), Exact Pay ---
+# Time:                60000 | ITEM: 001 | DISP: 0 | Change: 1:0 5:0 10:0
+# Time:               100000 | ITEM: 000 | DISP: 0 | Change: 1:0 5:0 10:0
+# Time:               280000 | ITEM: 000 | DISP: 1 | Change: 1:0 5:0 10:0
+# Time:               300000 | ITEM: 000 | DISP: 0 | Change: 1:0 5:0 10:0
+# --- Test 2: Item 2 (Price 5), Pay 10 (Change 5) ---
+# Time:               360000 | ITEM: 001 | DISP: 0 | Change: 1:0 5:0 10:0
+# Time:               400000 | ITEM: 010 | DISP: 0 | Change: 1:0 5:0 10:0
+# Time:               440000 | ITEM: 000 | DISP: 0 | Change: 1:0 5:0 10:0
+# Time:               540000 | ITEM: 000 | DISP: 1 | Change: 1:0 5:0 10:0
+# Time:               560000 | ITEM: 000 | DISP: 0 | Change: 1:0 5:0 10:0
+# --- Test 3: Item 3 (Price 12), Partial Pay + CANCEL ---
+# Time:               660000 | ITEM: 001 | DISP: 0 | Change: 1:0 5:0 10:0
+# Time:               700000 | ITEM: 010 | DISP: 0 | Change: 1:0 5:0 10:0
+# Time:               740000 | ITEM: 100 | DISP: 0 | Change: 1:0 5:0 10:0
+# Time:               780000 | ITEM: 000 | DISP: 0 | Change: 1:0 5:0 10:0
+#  > Asserting CANCEL (Refund 11.00)
+# --- Simulation Finished ---
+# ** Note: $stop    : C:/Users/Chrys Sean Sevilla/Desktop/School Stuff/CPE3101L_Sevilla/LabExers/VMC/tb_VMC.v(111)
+#    Time: 1070 ns  Iteration: 0  Instance: /tb_VMC
+# Break in Module tb_VMC at C:/Users/Chrys Sean Sevilla/Desktop/School Stuff/CPE3101L_Sevilla/LabExers/VMC/tb_VMC.v line 111
+# End time: 21:09:56 on Dec 17,2025, Elapsed time: 0:19:43
+# Errors: 0, Warnings: 0

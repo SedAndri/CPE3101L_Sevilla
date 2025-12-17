@@ -1,0 +1,173 @@
+
+// VMC with explicit coin inputs
+module vmc_coins_separate (
+    input  wire CLOCK,        // negative-edged
+    input  wire nRESET,       // async active-low
+    input  wire START,        // sync active-high
+    input  wire OK,           // sync active-high
+    input  wire CANCEL,       // async active-high
+    input  wire SELECT,       // sync active-high
+
+    // Coin sensors (active-high pulse per coin)
+    input  wire COIN1,
+    input  wire COIN5,
+    input  wire COIN10,
+
+    output reg  [2:0] ITEM,   // one-hot LED
+    output reg  DISPENSE,     // 1-cycle pulse
+    output reg  C1,           // 1-cycle pulse for ₱1
+    output reg  C5,           // 1-cycle pulse for ₱5
+    output reg  C10           // 1-cycle pulse for ₱10
+);
+
+    // Prices
+    localparam integer PRICE0 = 3;
+    localparam integer PRICE1 = 5;
+    localparam integer PRICE2 = 12;
+
+    // States
+    localparam [2:0]
+        S_IDLE      = 3'd0,
+        S_SELECTING = 3'd1,
+        S_PAYING    = 3'd2,
+        S_DISPENSE  = 3'd3,
+        S_CHANGE    = 3'd4,
+        S_DONE      = 3'd5;
+
+    reg [2:0] state;
+    reg [1:0] sel_idx;          // 0..2
+    reg [7:0] price;
+    reg [7:0] paid;
+    reg [7:0] change_amount;
+
+    // Simple edge detectors (add real debouncers in HW)
+    reg START_q, OK_q, SELECT_q, COIN1_q, COIN5_q, COIN10_q;
+    wire START_p  = START  & ~START_q;
+    wire OK_p     = OK     & ~OK_q;
+    wire SELECT_p = SELECT & ~SELECT_q;
+    wire COIN1_p  = COIN1  & ~COIN1_q;
+    wire COIN5_p  = COIN5  & ~COIN5_q;
+    wire COIN10_p = COIN10 & ~COIN10_q;
+
+    // Helpers
+    function [2:0] onehot (input [1:0] i);
+        case (i) 2'd0: onehot = 3'b001;
+                  2'd1: onehot = 3'b010;
+                  default: onehot = 3'b100;
+        endcase
+    endfunction
+    function [7:0] price_of (input [1:0] i);
+        case (i) 2'd0: price_of = PRICE0;
+                  2'd1: price_of = PRICE1;
+                  default: price_of = PRICE2;
+        endcase
+    endfunction
+
+    // Main sequential block (negedge), async reset & cancel
+    always @(negedge CLOCK or negedge nRESET or posedge CANCEL) begin
+        if (!nRESET) begin
+            state         <= S_IDLE;
+            sel_idx       <= 2'd0;
+            ITEM          <= 3'b000;
+            price         <= 0;
+            paid          <= 0;
+            change_amount <= 0;
+            DISPENSE      <= 1'b0; C1 <= 1'b0; C5 <= 1'b0; C10 <= 1'b0;
+            START_q <= 1'b0; OK_q <= 1'b0; SELECT_q <= 1'b0;
+            COIN1_q <= 1'b0; COIN5_q <= 1'b0; COIN10_q <= 1'b0;
+
+        end else if (CANCEL) begin
+            // Async cancel honored immediately
+            DISPENSE <= 1'b0; C1 <= 1'b0; C5 <= 1'b0; C10 <= 1'b0;
+            if (paid > 0) begin
+                change_amount <= paid;
+                paid          <= 0;
+                state         <= S_CHANGE;
+            end else begin
+                state         <= S_IDLE;
+                change_amount <= 0;
+                ITEM          <= 3'b000;
+            end
+
+        end else begin
+            // Update edge-capture flops
+            START_q  <= START;
+            OK_q     <= OK;
+            SELECT_q <= SELECT;
+            COIN1_q  <= COIN1;
+            COIN5_q  <= COIN5;
+            COIN10_q <= COIN10;
+
+            // Default pulses low
+            DISPENSE <= 1'b0; C1 <= 1'b0; C5 <= 1'b0; C10 <= 1'b0;
+
+            case (state)
+            S_IDLE: begin
+                if (START_p) begin
+                    state   <= S_SELECTING;
+                    sel_idx <= 2'd0;
+                    ITEM    <= onehot(2'd0);
+                    price   <= price_of(2'd0);
+                    paid    <= 0;
+                end
+            end
+
+            S_SELECTING: begin
+                if (SELECT_p) begin
+                    sel_idx <= (sel_idx == 2'd2) ? 2'd0 : (sel_idx + 2'd1);
+                    ITEM    <= onehot((sel_idx == 2'd2) ? 2'd0 : (sel_idx + 2'd1));
+                    price   <= price_of((sel_idx == 2'd2) ? 2'd0 : (sel_idx + 2'd1));
+                end
+                if (OK_p) begin
+                    state <= S_PAYING;
+                    paid  <= 0; // lock selection; keep LED lit
+                end
+            end
+
+            S_PAYING: begin
+                if (paid < price) begin
+                    if (COIN10_p) paid <= paid + 10;
+                    else if (COIN5_p) paid <= paid + 5;
+                    else if (COIN1_p) paid <= paid + 1;
+                end
+                if (OK_p && (paid >= price)) begin
+                    state <= S_DISPENSE;
+                end
+            end
+
+            S_DISPENSE: begin
+                DISPENSE <= 1'b1;
+                if (paid > price) begin
+                    change_amount <= paid - price;
+                    paid          <= 0;
+                    state         <= S_CHANGE;
+                end else begin
+                    paid          <= 0;
+                    change_amount <= 0;
+                    state         <= S_DONE;
+                end
+            end
+
+            S_CHANGE: begin
+                if (change_amount >= 10) begin
+                    C10 <= 1'b1; change_amount <= change_amount - 10;
+                end else if (change_amount >= 5) begin
+                    C5  <= 1'b1; change_amount <= change_amount - 5;
+                end else if (change_amount >= 1) begin
+                    C1  <= 1'b1; change_amount <= change_amount - 1;
+                end else begin
+                    state <= S_DONE;
+                end
+            end
+
+            S_DONE: begin
+                ITEM  <= 3'b000; price <= 0;
+                state <= S_IDLE;
+            end
+
+            default: state <= S_IDLE;
+            endcase
+        end
+    end
+endmodule
+``
