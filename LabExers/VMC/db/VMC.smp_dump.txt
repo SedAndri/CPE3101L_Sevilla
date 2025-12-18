@@ -1,0 +1,10 @@
+
+State Machine - |VMC_DE10|VMC:vmc_inst|state
+Name state.S_OUT_CHANGE state.S_REFUND state.S_CALC_CHANGE state.S_DISPENSE_ITEM state.S_PAY state.S_SELECT state.S_IDLE 
+state.S_IDLE 0 0 0 0 0 0 0 
+state.S_SELECT 0 0 0 0 0 1 1 
+state.S_PAY 0 0 0 0 1 0 1 
+state.S_DISPENSE_ITEM 0 0 0 1 0 0 1 
+state.S_CALC_CHANGE 0 0 1 0 0 0 1 
+state.S_REFUND 0 1 0 0 0 0 1 
+state.S_OUT_CHANGE 1 0 0 0 0 0 1 

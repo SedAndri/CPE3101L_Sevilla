@@ -20,6 +20,54 @@ LEDR[6] << VMC:vmc_inst.C5
 LEDR[7] << VMC:vmc_inst.C10
 LEDR[8] << <GND>
 LEDR[9] << VMC:vmc_inst.DISPENSE
+HEX0[0] << HexTo7SegmentDecoder:disp_paid_L.seg
+HEX0[1] << HexTo7SegmentDecoder:disp_paid_L.seg
+HEX0[2] << HexTo7SegmentDecoder:disp_paid_L.seg
+HEX0[3] << HexTo7SegmentDecoder:disp_paid_L.seg
+HEX0[4] << HexTo7SegmentDecoder:disp_paid_L.seg
+HEX0[5] << HexTo7SegmentDecoder:disp_paid_L.seg
+HEX0[6] << HexTo7SegmentDecoder:disp_paid_L.seg
+HEX0[7] << HexTo7SegmentDecoder:disp_paid_L.seg
+HEX1[0] << HexTo7SegmentDecoder:disp_paid_H.seg
+HEX1[1] << HexTo7SegmentDecoder:disp_paid_H.seg
+HEX1[2] << HexTo7SegmentDecoder:disp_paid_H.seg
+HEX1[3] << HexTo7SegmentDecoder:disp_paid_H.seg
+HEX1[4] << HexTo7SegmentDecoder:disp_paid_H.seg
+HEX1[5] << HexTo7SegmentDecoder:disp_paid_H.seg
+HEX1[6] << HexTo7SegmentDecoder:disp_paid_H.seg
+HEX1[7] << HexTo7SegmentDecoder:disp_paid_H.seg
+HEX2[0] << HexTo7SegmentDecoder:disp_change_L.seg
+HEX2[1] << HexTo7SegmentDecoder:disp_change_L.seg
+HEX2[2] << HexTo7SegmentDecoder:disp_change_L.seg
+HEX2[3] << HexTo7SegmentDecoder:disp_change_L.seg
+HEX2[4] << HexTo7SegmentDecoder:disp_change_L.seg
+HEX2[5] << HexTo7SegmentDecoder:disp_change_L.seg
+HEX2[6] << HexTo7SegmentDecoder:disp_change_L.seg
+HEX2[7] << HexTo7SegmentDecoder:disp_change_L.seg
+HEX3[0] << HexTo7SegmentDecoder:disp_change_H.seg
+HEX3[1] << HexTo7SegmentDecoder:disp_change_H.seg
+HEX3[2] << HexTo7SegmentDecoder:disp_change_H.seg
+HEX3[3] << HexTo7SegmentDecoder:disp_change_H.seg
+HEX3[4] << HexTo7SegmentDecoder:disp_change_H.seg
+HEX3[5] << HexTo7SegmentDecoder:disp_change_H.seg
+HEX3[6] << HexTo7SegmentDecoder:disp_change_H.seg
+HEX3[7] << HexTo7SegmentDecoder:disp_change_H.seg
+HEX4[0] << HexTo7SegmentDecoder:disp_cost_L.seg
+HEX4[1] << HexTo7SegmentDecoder:disp_cost_L.seg
+HEX4[2] << HexTo7SegmentDecoder:disp_cost_L.seg
+HEX4[3] << HexTo7SegmentDecoder:disp_cost_L.seg
+HEX4[4] << HexTo7SegmentDecoder:disp_cost_L.seg
+HEX4[5] << HexTo7SegmentDecoder:disp_cost_L.seg
+HEX4[6] << HexTo7SegmentDecoder:disp_cost_L.seg
+HEX4[7] << HexTo7SegmentDecoder:disp_cost_L.seg
+HEX5[0] << HexTo7SegmentDecoder:disp_cost_H.seg
+HEX5[1] << HexTo7SegmentDecoder:disp_cost_H.seg
+HEX5[2] << HexTo7SegmentDecoder:disp_cost_H.seg
+HEX5[3] << HexTo7SegmentDecoder:disp_cost_H.seg
+HEX5[4] << HexTo7SegmentDecoder:disp_cost_H.seg
+HEX5[5] << HexTo7SegmentDecoder:disp_cost_H.seg
+HEX5[6] << HexTo7SegmentDecoder:disp_cost_H.seg
+HEX5[7] << HexTo7SegmentDecoder:disp_cost_H.seg
 
 
 |VMC_DE10|ClockDivider:clk_div_inst
@@ -86,6 +134,14 @@ CLOCK => prev_ok.CLK
 CLOCK => prev_sel.CLK
 CLOCK => item_ptr[0].CLK
 CLOCK => item_ptr[1].CLK
+CLOCK => final_change_display[0].CLK
+CLOCK => final_change_display[1].CLK
+CLOCK => final_change_display[2].CLK
+CLOCK => final_change_display[3].CLK
+CLOCK => final_change_display[4].CLK
+CLOCK => final_change_display[5].CLK
+CLOCK => final_change_display[6].CLK
+CLOCK => final_change_display[7].CLK
 CLOCK => change_due[0].CLK
 CLOCK => change_due[1].CLK
 CLOCK => change_due[2].CLK
@@ -114,14 +170,7 @@ CLOCK => C10~reg0.CLK
 CLOCK => C5~reg0.CLK
 CLOCK => C1~reg0.CLK
 CLOCK => DISPENSE~reg0.CLK
-CLOCK => state.S_OUT_CHANGE.CLK
-CLOCK => state.S_REFUND.CLK
-CLOCK => state.S_CALC_CHANGE.CLK
-CLOCK => state.S_DISPENSE_ITEM.CLK
-CLOCK => state.S_PAY.CLK
-CLOCK => state.S_SELECT.CLK
-CLOCK => state.S_IDLE.CLK
-nRESET => DISPENSE.IN0
+CLOCK => state~7.DATAIN
 nRESET => prev_c10.ACLR
 nRESET => prev_c5.ACLR
 nRESET => prev_c1.ACLR
@@ -129,6 +178,14 @@ nRESET => prev_ok.ACLR
 nRESET => prev_sel.ACLR
 nRESET => item_ptr[0].ACLR
 nRESET => item_ptr[1].ACLR
+nRESET => final_change_display[0].ACLR
+nRESET => final_change_display[1].ACLR
+nRESET => final_change_display[2].ACLR
+nRESET => final_change_display[3].ACLR
+nRESET => final_change_display[4].ACLR
+nRESET => final_change_display[5].ACLR
+nRESET => final_change_display[6].ACLR
+nRESET => final_change_display[7].ACLR
 nRESET => change_due[0].ACLR
 nRESET => change_due[1].ACLR
 nRESET => change_due[2].ACLR
@@ -157,13 +214,7 @@ nRESET => C10~reg0.ACLR
 nRESET => C5~reg0.ACLR
 nRESET => C1~reg0.ACLR
 nRESET => DISPENSE~reg0.ACLR
-nRESET => state.S_OUT_CHANGE.ACLR
-nRESET => state.S_REFUND.ACLR
-nRESET => state.S_CALC_CHANGE.ACLR
-nRESET => state.S_DISPENSE_ITEM.ACLR
-nRESET => state.S_PAY.ACLR
-nRESET => state.S_SELECT.ACLR
-nRESET => state.S_IDLE.PRESET
+nRESET => state~9.DATAIN
 START => state.OUTPUTSELECT
 START => state.OUTPUTSELECT
 START => state.OUTPUTSELECT
@@ -171,6 +222,14 @@ START => state.OUTPUTSELECT
 START => state.OUTPUTSELECT
 START => state.OUTPUTSELECT
 START => state.OUTPUTSELECT
+START => final_change_display.OUTPUTSELECT
+START => final_change_display.OUTPUTSELECT
+START => final_change_display.OUTPUTSELECT
+START => final_change_display.OUTPUTSELECT
+START => final_change_display.OUTPUTSELECT
+START => final_change_display.OUTPUTSELECT
+START => final_change_display.OUTPUTSELECT
+START => final_change_display.OUTPUTSELECT
 START => item_ptr.OUTPUTSELECT
 START => item_ptr.OUTPUTSELECT
 START => price.OUTPUTSELECT
@@ -183,7 +242,17 @@ START => price.OUTPUTSELECT
 START => price.OUTPUTSELECT
 OK => always1.IN1
 OK => prev_ok.DATAIN
-CANCEL => DISPENSE.IN1
+CANCEL => state.OUTPUTSELECT
+CANCEL => state.OUTPUTSELECT
+CANCEL => state.OUTPUTSELECT
+CANCEL => state.OUTPUTSELECT
+CANCEL => state.OUTPUTSELECT
+CANCEL => state.OUTPUTSELECT
+CANCEL => state.OUTPUTSELECT
+CANCEL => DISPENSE.OUTPUTSELECT
+CANCEL => C1.OUTPUTSELECT
+CANCEL => C5.OUTPUTSELECT
+CANCEL => C10.OUTPUTSELECT
 SELECT => always2.IN1
 SELECT => prev_sel.DATAIN
 COIN_1 => always2.IN1
@@ -199,5 +268,125 @@ DISPENSE <= DISPENSE~reg0.DB_MAX_OUTPUT_PORT_TYPE
 C1 <= C1~reg0.DB_MAX_OUTPUT_PORT_TYPE
 C5 <= C5~reg0.DB_MAX_OUTPUT_PORT_TYPE
 C10 <= C10~reg0.DB_MAX_OUTPUT_PORT_TYPE
+DBG_COST[0] <= price[0].DB_MAX_OUTPUT_PORT_TYPE
+DBG_COST[1] <= price[1].DB_MAX_OUTPUT_PORT_TYPE
+DBG_COST[2] <= price[2].DB_MAX_OUTPUT_PORT_TYPE
+DBG_COST[3] <= price[3].DB_MAX_OUTPUT_PORT_TYPE
+DBG_COST[4] <= price[4].DB_MAX_OUTPUT_PORT_TYPE
+DBG_COST[5] <= price[5].DB_MAX_OUTPUT_PORT_TYPE
+DBG_COST[6] <= price[6].DB_MAX_OUTPUT_PORT_TYPE
+DBG_COST[7] <= price[7].DB_MAX_OUTPUT_PORT_TYPE
+DBG_PAID[0] <= balance[0].DB_MAX_OUTPUT_PORT_TYPE
+DBG_PAID[1] <= balance[1].DB_MAX_OUTPUT_PORT_TYPE
+DBG_PAID[2] <= balance[2].DB_MAX_OUTPUT_PORT_TYPE
+DBG_PAID[3] <= balance[3].DB_MAX_OUTPUT_PORT_TYPE
+DBG_PAID[4] <= balance[4].DB_MAX_OUTPUT_PORT_TYPE
+DBG_PAID[5] <= balance[5].DB_MAX_OUTPUT_PORT_TYPE
+DBG_PAID[6] <= balance[6].DB_MAX_OUTPUT_PORT_TYPE
+DBG_PAID[7] <= balance[7].DB_MAX_OUTPUT_PORT_TYPE
+DBG_CHANGE[0] <= final_change_display[0].DB_MAX_OUTPUT_PORT_TYPE
+DBG_CHANGE[1] <= final_change_display[1].DB_MAX_OUTPUT_PORT_TYPE
+DBG_CHANGE[2] <= final_change_display[2].DB_MAX_OUTPUT_PORT_TYPE
+DBG_CHANGE[3] <= final_change_display[3].DB_MAX_OUTPUT_PORT_TYPE
+DBG_CHANGE[4] <= final_change_display[4].DB_MAX_OUTPUT_PORT_TYPE
+DBG_CHANGE[5] <= final_change_display[5].DB_MAX_OUTPUT_PORT_TYPE
+DBG_CHANGE[6] <= final_change_display[6].DB_MAX_OUTPUT_PORT_TYPE
+DBG_CHANGE[7] <= final_change_display[7].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VMC_DE10|HexTo7SegmentDecoder:disp_paid_L
+hex[0] => Decoder0.IN3
+hex[1] => Decoder0.IN2
+hex[2] => Decoder0.IN1
+hex[3] => Decoder0.IN0
+dp => seg[7].DATAIN
+seg[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+seg[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+seg[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+seg[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+seg[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+seg[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+seg[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+seg[7] <= dp.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VMC_DE10|HexTo7SegmentDecoder:disp_paid_H
+hex[0] => Decoder0.IN3
+hex[1] => Decoder0.IN2
+hex[2] => Decoder0.IN1
+hex[3] => Decoder0.IN0
+dp => seg[7].DATAIN
+seg[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+seg[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+seg[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+seg[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+seg[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+seg[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+seg[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+seg[7] <= dp.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VMC_DE10|HexTo7SegmentDecoder:disp_change_L
+hex[0] => Decoder0.IN3
+hex[1] => Decoder0.IN2
+hex[2] => Decoder0.IN1
+hex[3] => Decoder0.IN0
+dp => seg[7].DATAIN
+seg[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+seg[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+seg[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+seg[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+seg[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+seg[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+seg[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+seg[7] <= dp.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VMC_DE10|HexTo7SegmentDecoder:disp_change_H
+hex[0] => Decoder0.IN3
+hex[1] => Decoder0.IN2
+hex[2] => Decoder0.IN1
+hex[3] => Decoder0.IN0
+dp => seg[7].DATAIN
+seg[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+seg[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+seg[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+seg[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+seg[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+seg[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+seg[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+seg[7] <= dp.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VMC_DE10|HexTo7SegmentDecoder:disp_cost_L
+hex[0] => Decoder0.IN3
+hex[1] => Decoder0.IN2
+hex[2] => Decoder0.IN1
+hex[3] => Decoder0.IN0
+dp => seg[7].DATAIN
+seg[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+seg[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+seg[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+seg[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+seg[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+seg[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+seg[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+seg[7] <= dp.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VMC_DE10|HexTo7SegmentDecoder:disp_cost_H
+hex[0] => Decoder0.IN3
+hex[1] => Decoder0.IN2
+hex[2] => Decoder0.IN1
+hex[3] => Decoder0.IN0
+dp => seg[7].DATAIN
+seg[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+seg[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+seg[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+seg[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+seg[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+seg[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+seg[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+seg[7] <= dp.DB_MAX_OUTPUT_PORT_TYPE
 
 
