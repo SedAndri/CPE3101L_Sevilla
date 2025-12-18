@@ -1,5 +1,5 @@
 Analysis & Synthesis report for FourbitUpDownCounter
-Fri Nov 28 23:44:56 2025
+Thu Dec 18 11:46:02 2025
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -45,7 +45,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri Nov 28 23:44:56 2025       ;
+; Analysis & Synthesis Status        ; Successful - Thu Dec 18 11:46:02 2025       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; FourbitUpDownCounter                        ;
 ; Top-level Entity Name              ; TopModule                                   ;
@@ -155,27 +155,27 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 16          ;
-; Maximum allowed            ; 16          ;
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 8           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 16          ;
+; Maximum used               ; 8           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-16        ;   0.0%      ;
+;     Processors 2-8         ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                                                   ;
-+----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                                               ; Library ;
-+----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------------------------------------------------------+---------+
-; FourbitUpDownCounter.v           ; yes             ; User Verilog HDL File        ; C:/Users/Chrys Sean Sevilla/Desktop/School Stuff/CPE3101L_Sevilla/LabExers/LE6/FourbitUpDownCounter/FourbitUpDownCounter.v ;         ;
-; TopModule.v                      ; yes             ; User Verilog HDL File        ; C:/Users/Chrys Sean Sevilla/Desktop/School Stuff/CPE3101L_Sevilla/LabExers/LE6/FourbitUpDownCounter/TopModule.v            ;         ;
-; clockdivider.v                   ; yes             ; Auto-Found Verilog HDL File  ; C:/Users/Chrys Sean Sevilla/Desktop/School Stuff/CPE3101L_Sevilla/LabExers/LE6/FourbitUpDownCounter/clockdivider.v         ;         ;
-+----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------------------------------------------------------+---------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                     ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                 ; Library ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------+---------+
+; FourbitUpDownCounter.v           ; yes             ; User Verilog HDL File        ; Z:/CPE3101L_Sevilla/LabExers/LE6/FourbitUpDownCounter/FourbitUpDownCounter.v ;         ;
+; TopModule.v                      ; yes             ; User Verilog HDL File        ; Z:/CPE3101L_Sevilla/LabExers/LE6/FourbitUpDownCounter/TopModule.v            ;         ;
+; clockdivider.v                   ; yes             ; Auto-Found Verilog HDL File  ; Z:/CPE3101L_Sevilla/LabExers/LE6/FourbitUpDownCounter/clockdivider.v         ;         ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------+---------+
 
 
 +------------------------------------------------------------+
@@ -294,22 +294,22 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Fri Nov 28 23:44:47 2025
+    Info: Processing started: Thu Dec 18 11:45:54 2025
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off FourbitUpDownCounter -c FourbitUpDownCounter
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
+Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file fourbitupdowncounter.v
-    Info (12023): Found entity 1: FourbitUpDownCounter File: C:/Users/Chrys Sean Sevilla/Desktop/School Stuff/CPE3101L_Sevilla/LabExers/LE6/FourbitUpDownCounter/FourbitUpDownCounter.v Line: 5
+    Info (12023): Found entity 1: FourbitUpDownCounter File: Z:/CPE3101L_Sevilla/LabExers/LE6/FourbitUpDownCounter/FourbitUpDownCounter.v Line: 5
 Info (12021): Found 1 design units, including 1 entities, in source file tb_fourbitupdowncounter.v
-    Info (12023): Found entity 1: tb_FourbitUpDownCounter File: C:/Users/Chrys Sean Sevilla/Desktop/School Stuff/CPE3101L_Sevilla/LabExers/LE6/FourbitUpDownCounter/tb_FourbitUpDownCounter.v Line: 9
+    Info (12023): Found entity 1: tb_FourbitUpDownCounter File: Z:/CPE3101L_Sevilla/LabExers/LE6/FourbitUpDownCounter/tb_FourbitUpDownCounter.v Line: 9
 Info (12021): Found 1 design units, including 1 entities, in source file topmodule.v
-    Info (12023): Found entity 1: TopModule File: C:/Users/Chrys Sean Sevilla/Desktop/School Stuff/CPE3101L_Sevilla/LabExers/LE6/FourbitUpDownCounter/TopModule.v Line: 2
+    Info (12023): Found entity 1: TopModule File: Z:/CPE3101L_Sevilla/LabExers/LE6/FourbitUpDownCounter/TopModule.v Line: 5
 Info (12127): Elaborating entity "TopModule" for the top level hierarchy
 Warning (12125): Using design file clockdivider.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
-    Info (12023): Found entity 1: ClockDivider File: C:/Users/Chrys Sean Sevilla/Desktop/School Stuff/CPE3101L_Sevilla/LabExers/LE6/FourbitUpDownCounter/clockdivider.v Line: 5
-Info (12128): Elaborating entity "ClockDivider" for hierarchy "ClockDivider:clk_div_inst" File: C:/Users/Chrys Sean Sevilla/Desktop/School Stuff/CPE3101L_Sevilla/LabExers/LE6/FourbitUpDownCounter/TopModule.v Line: 19
-Warning (10230): Verilog HDL assignment warning at clockdivider.v(25): truncated value with size 32 to match size of target (25) File: C:/Users/Chrys Sean Sevilla/Desktop/School Stuff/CPE3101L_Sevilla/LabExers/LE6/FourbitUpDownCounter/clockdivider.v Line: 25
-Info (12128): Elaborating entity "FourbitUpDownCounter" for hierarchy "FourbitUpDownCounter:counter_inst" File: C:/Users/Chrys Sean Sevilla/Desktop/School Stuff/CPE3101L_Sevilla/LabExers/LE6/FourbitUpDownCounter/TopModule.v Line: 30
+    Info (12023): Found entity 1: ClockDivider File: Z:/CPE3101L_Sevilla/LabExers/LE6/FourbitUpDownCounter/clockdivider.v Line: 5
+Info (12128): Elaborating entity "ClockDivider" for hierarchy "ClockDivider:clk_div_inst" File: Z:/CPE3101L_Sevilla/LabExers/LE6/FourbitUpDownCounter/TopModule.v Line: 22
+Warning (10230): Verilog HDL assignment warning at clockdivider.v(25): truncated value with size 32 to match size of target (25) File: Z:/CPE3101L_Sevilla/LabExers/LE6/FourbitUpDownCounter/clockdivider.v Line: 25
+Info (12128): Elaborating entity "FourbitUpDownCounter" for hierarchy "FourbitUpDownCounter:counter_inst" File: Z:/CPE3101L_Sevilla/LabExers/LE6/FourbitUpDownCounter/TopModule.v Line: 33
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
@@ -318,9 +318,9 @@ Info (21057): Implemented 65 device resources after synthesis - the final resour
     Info (21059): Implemented 4 output pins
     Info (21061): Implemented 52 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 3 warnings
-    Info: Peak virtual memory: 4839 megabytes
-    Info: Processing ended: Fri Nov 28 23:44:56 2025
-    Info: Elapsed time: 00:00:09
-    Info: Total CPU time (on all processors): 00:00:23
+    Info: Peak virtual memory: 4805 megabytes
+    Info: Processing ended: Thu Dec 18 11:46:02 2025
+    Info: Elapsed time: 00:00:08
+    Info: Total CPU time (on all processors): 00:00:12
 
 

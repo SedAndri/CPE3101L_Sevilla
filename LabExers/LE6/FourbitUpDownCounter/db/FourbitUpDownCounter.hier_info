@@ -8,10 +8,10 @@ data_in[0] => data_in[0].IN1
 data_in[1] => data_in[1].IN1
 data_in[2] => data_in[2].IN1
 data_in[3] => data_in[3].IN1
-count[0] << FourbitUpDownCounter:counter_inst.count
-count[1] << FourbitUpDownCounter:counter_inst.count
-count[2] << FourbitUpDownCounter:counter_inst.count
-count[3] << FourbitUpDownCounter:counter_inst.count
+count[0] <= FourbitUpDownCounter:counter_inst.count
+count[1] <= FourbitUpDownCounter:counter_inst.count
+count[2] <= FourbitUpDownCounter:counter_inst.count
+count[3] <= FourbitUpDownCounter:counter_inst.count
 
 
 |TopModule|ClockDivider:clk_div_inst

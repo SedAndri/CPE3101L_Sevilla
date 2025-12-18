@@ -1,8 +1,8 @@
 vendor_name = ModelSim
-source_file = 1, C:/Users/Chrys Sean Sevilla/Desktop/School Stuff/CPE3101L_Sevilla/LabExers/LE6/FourbitUpDownCounter/FourbitUpDownCounter.v
-source_file = 1, C:/Users/Chrys Sean Sevilla/Desktop/School Stuff/CPE3101L_Sevilla/LabExers/LE6/FourbitUpDownCounter/tb_FourbitUpDownCounter.v
-source_file = 1, C:/Users/Chrys Sean Sevilla/Desktop/School Stuff/CPE3101L_Sevilla/LabExers/LE6/FourbitUpDownCounter/TopModule.v
-source_file = 1, C:/Users/Chrys Sean Sevilla/Desktop/School Stuff/CPE3101L_Sevilla/LabExers/LE6/FourbitUpDownCounter/clockdivider.v
+source_file = 1, Z:/CPE3101L_Sevilla/LabExers/LE6/FourbitUpDownCounter/FourbitUpDownCounter.v
+source_file = 1, Z:/CPE3101L_Sevilla/LabExers/LE6/FourbitUpDownCounter/tb_FourbitUpDownCounter.v
+source_file = 1, Z:/CPE3101L_Sevilla/LabExers/LE6/FourbitUpDownCounter/TopModule.v
+source_file = 1, Z:/CPE3101L_Sevilla/LabExers/LE6/FourbitUpDownCounter/clockdivider.v
 design_name = TopModule
 instance = comp, \~QUARTUS_CREATED_GND~I , ~QUARTUS_CREATED_GND~I, TopModule, 1
 instance = comp, \count[0]~output , count[0]~output, TopModule, 1

@@ -3,13 +3,13 @@
 // Verilog HDL code for FourbitUpDownCounter
 
 module TopModule (
-    input wire clk_in,       // 50 MHz clock
-    input wire nReset,       // Active-low reset
-    input wire load,         // Load enable
-    input wire count_en,     // Count enable
-    input wire up,           // Direction control
-    input wire [3:0] data_in,// Parallel input
-    output wire [3:0] count  // Counter output
+    input wire clk_in,       // Assigned to PIN_P11 (50 MHz)
+    input wire nReset,       // Assigned to PIN_B14 (Switch 8)
+    input wire load,         // Assigned to PIN_A14 (Switch 7)
+    input wire count_en,     // Assigned to PIN_F15 (Switch 9)
+    input wire up,           // Assigned to PIN_A13 (Switch 6)
+    input wire [3:0] data_in,// Assigned to Switches [3:0]
+    output wire [3:0] count  // Assigned to LEDs [3:0]
 );
 
     wire slow_clk; // Output of ClockDivider
